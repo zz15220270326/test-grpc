@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package student;
+
+// 是否需要打包成多个 java 文件 (这里填 true)
+option java_multiple_files = true;
+// 最终输出的项目包，这里需要指定在扫描包下的 api 子包里面
+option java_package = "cn.bklovezz.api.grpc";
+// 定义向外暴露的 class 名称, 这里就先给一个 "StudentProto"
+option java_outer_classname = "StudentProto";
+
+service StudentService {
+  rpc getStudentInfoList (GetStudentInfoListRequest) returns (GetStudentInfoListResponse) {}
+
+  rpc getStudentScoreList (GetStudentScoreInfoRequest) returns (GetStudentScoreInfoResponse) {};
+
+  rpc getStudentAttendList (GetStudentAttendInfoRequest) returns (GetStudentAttendInfoResponse) {};
+}
+
+message GetStudentInfoListRequest {
+  optional string name = 1;
+  optional int32 pageNum = 2;
+  optional int32 pageSize = 3;
+}
+
+message GetStudentInfoListResponse {
+  int64 total = 1;
+  repeated StudentInfo list = 2;
+}
+
+message GetStudentScoreInfoRequest {
+  repeated int32 studentIds = 1;
+  optional int32 pageNum = 2;
+  optional int32 pageSize = 3;
+}
+
+message GetStudentScoreInfoResponse {
+  int64 total = 1;
+  repeated StudentScoreInfo list = 2;
+}
+
+message GetStudentAttendInfoRequest {
+  repeated int32 studentIds = 1;
+  optional int32 pageNum = 2;
+  optional int32 pageSize = 3;
+}
+
+message GetStudentAttendInfoResponse {
+  int64 total = 1;
+  repeated StudentAttendInfo list = 2;
+}
+
+message StudentInfo {
+  int64 id = 1;
+  string name = 2;
+  int32 age = 3;
+  optional sint32 gender = 4;
+}
+
+message StudentScoreInfo {
+  int64 studentId = 1;
+  double chineseScore = 2;
+  double mathScore = 3;
+  double englishScore = 4;
+}
+
+message StudentAttendInfo {
+  int64 studentId = 1;
+  int64 attendDays = 2;
+}

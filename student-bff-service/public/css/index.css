@@ -1,0 +1,44 @@
+.J_Table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.J_Table th,
+.J_Table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.top-tool {
+  margin-bottom: 20px;
+}
+
+.top-tool .J_SearchInput {
+  width: 200px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #0099dd;
+}
+
+.top-tool .J_SearchButton {
+  border: none;
+  outline: none;
+  background-color: #0099dd;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.bottom-tool {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.bottom-tool .J_Total {
+  font-weight: bold;  
+}
