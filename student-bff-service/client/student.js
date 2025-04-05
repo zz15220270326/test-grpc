@@ -6,7 +6,7 @@ const studentGrpcClient = new GrpcClient({
   port: StudentApi.port,
   packageName: StudentApi.packageName,
   protoFilePath: StudentApi.protoFilePath,
-  isShowLog: true,
+  isShowLog: false,
 });
 
 const studentApi = StudentApi.api;
