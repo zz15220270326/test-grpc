@@ -1,0 +1,10 @@
+server:
+  port: 50003
+
+grpc:
+  client:
+    student-service:
+      address: 'localhost:50001'
+      enable-keep-alive: true
+      keep-alive-time: 5000
+      negotiation-type: plaintext
